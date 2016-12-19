@@ -15,7 +15,7 @@
   "preferGlobal": false,
   "main": "./build/index.js",
   "dependencies": {
-    "request-promise": "4.0.2",
+    "request-promise": "4.1.1",
     "enumify": "1.0.4",
     "base-64": "0.1.0",
     "utf8": "2.1.2"

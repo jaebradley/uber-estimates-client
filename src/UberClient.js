@@ -27,7 +27,7 @@ export default class UberClient {
         longitude: coordinates.longitude
       },
       headers: {
-        Authorization: `Bearer ${this.serverToken}`
+        Authorization: `Token ${this.serverToken}`
       },
       json: true
     };

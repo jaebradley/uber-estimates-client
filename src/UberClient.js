@@ -5,6 +5,7 @@ import rp from 'request-promise';
 import CoordinateBuilder from './data/builders/CoordinateBuilder';
 import PriceEstimatesSearchBuilder from './search/builders/PriceEstimatesSearchBuilder';
 import Subpath from './data/Subpath';
+import TimeEstimatesSearchBuilder from './search/builders/TimeEstimatesSearchBuilder';
 
 export default class UberClient {
   constructor(serverToken) {
@@ -22,6 +23,13 @@ export default class UberClient {
                         PriceEstimatesSearchBuilder.build(search)
                                                    .toParameters()
                                                    .toJS());
+  }
+
+  getTimeEstimates(search) {
+    return this.execute(Subpath.TIME_ESTIMATES,
+                        TimeEstimatesSearchBuilder.build(search)
+                                                  .toParameters()
+                                                  .toJS());
   }
 
   execute(subpath, parameters) {

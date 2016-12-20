@@ -28,6 +28,12 @@ describe('Test Uber Client', function() {
       longitude: longitude1
     }
   };
+  let timeEstimatesSearch = {
+    start: {
+      latitude: latitude,
+      longitude: longitude
+    }
+  };
 
   it('tests product fetch', function() {
     return client.getProducts(coordinate)
@@ -38,4 +44,9 @@ describe('Test Uber Client', function() {
     return client.getPriceEstimates(priceEstimatesSearch)
                  .then(response => console.log(response));
   });
+
+  it('tests time estimates fetch', function() {
+    return client.getTimeEstimates(timeEstimatesSearch)
+                 .then(response => console.log(response));
+  })
 });

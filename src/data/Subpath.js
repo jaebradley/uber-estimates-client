@@ -6,5 +6,8 @@ export default class Subpath extends Enum {}
 Subpath.initEnum({
   PRODUCTS: {
     value: 'products',
+  },
+  PRICE_ESTIMATES: {
+    value: 'price_estimates'
   }
 });

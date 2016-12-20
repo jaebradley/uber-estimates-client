@@ -2,8 +2,8 @@
 
 import rp from 'request-promise';
 
-import CoordinateBuilder from '../data/builders/Coordinate';
-import Subpath from '../data/Subpath';
+import CoordinateBuilder from './data/builders/CoordinateBuilder';
+import Subpath from './data/Subpath';
 
 export default class UberClient {
   constructor(serverToken) {
@@ -11,13 +11,13 @@ export default class UberClient {
   }
 
   getProducts(coordinate) {
-    return execute(Subpath.PRODUCTS,
-                   CoordinateBuilder.build(coordinate).toJS());
+    return this.execute(Subpath.PRODUCTS,
+                        CoordinateBuilder.build(coordinate).toJS());
   }
 
   execute(subpath, parameters) {
     return rp(this.buildOptions(subpath, parameters))
-              .then(result => console.log(result))
+              .then(result => result)
               .catch(function(err) {
                 throw new Error(err);
               });

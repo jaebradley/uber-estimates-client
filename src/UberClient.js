@@ -32,4 +32,16 @@ export default class UberClient {
       json: true
     };
   }
+
+  static validateCoordinates(coordinates) {
+    if (!('latitude' in coordinates)) {
+      throw new ReferenceError('missing latitude field');
+    }
+
+    if (!('longitude' in coordinates)) {
+      throw new ReferenceError('missing longitude field');
+    }
+
+    
+  }
 }

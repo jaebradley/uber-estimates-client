@@ -2,6 +2,7 @@
 
 import rp from 'request-promise';
 
+import CoordinateBuilder from '../data/builders/Coordinate';
 import Subpath from '../data/Subpath';
 
 export default class UberClient {
@@ -9,39 +10,25 @@ export default class UberClient {
     this.serverToken = serverToken;
   }
 
-  getProducts(coordinates) {
-    return execute(Subpath.PRODUCTS, coordinates);
+  getProducts(coordinate) {
+    return execute(Subpath.PRODUCTS,
+                   CoordinateBuilder.build(coordinate).toJS());
   }
 
-  execute(subpath, coordinates) {
-    return rp(this.buildOptions(subpath, coordinates))
+  execute(subpath, parameters) {
+    return rp(this.buildOptions(subpath, parameters))
               .then(result => console.log(result))
               .catch(err => throw new Error(err));
   }
 
-  buildOptions(subpath, coordinates) {
+  buildOptions(subpath, parameters) {
     return {
       uri: `https://api.uber.com/v1.2/${subpath.value}`,
-      qs: {
-        latitude: coordinates.latitude,
-        longitude: coordinates.longitude
-      },
+      qs: parameters,
       headers: {
         Authorization: `Token ${this.serverToken}`
       },
       json: true
     };
-  }
-
-  static validateCoordinates(coordinates) {
-    if (!('latitude' in coordinates)) {
-      throw new ReferenceError('missing latitude field');
-    }
-
-    if (!('longitude' in coordinates)) {
-      throw new ReferenceError('missing longitude field');
-    }
-
-    
   }
 }

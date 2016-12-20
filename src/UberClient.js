@@ -24,6 +24,10 @@ export default class UberClient {
                                                    .toJS());
   }
 
+  getTimeEstimates(search) {
+    
+  }
+
   execute(subpath, parameters) {
     return rp(this.buildOptions(subpath, parameters))
               .then(result => result)

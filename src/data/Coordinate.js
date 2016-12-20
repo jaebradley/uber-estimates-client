@@ -1,6 +1,6 @@
 'use es6';
 
-import {Record}
+import {Record} from 'immutable';
 
 let defaults = {
   latitude: 0,

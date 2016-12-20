@@ -18,7 +18,9 @@ export default class UberClient {
   execute(subpath, parameters) {
     return rp(this.buildOptions(subpath, parameters))
               .then(result => console.log(result))
-              .catch(err => throw new Error(err));
+              .catch(function(err) {
+                throw new Error(err);
+              });
   }
 
   buildOptions(subpath, parameters) {

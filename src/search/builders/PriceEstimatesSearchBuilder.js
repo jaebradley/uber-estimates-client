@@ -25,10 +25,10 @@ export default class PriceEstimatesSearchBuilder {
     let startCoordinate = CoordinateBuilder.build(json['start']);
     let endCoordinate = CoordinateBuilder.build(json['end']);
 
-    args = args.set('startCoordinate', startCoordinate);
-    args = args.set('endCoordinate', endCoordinate);
+    args = args.set('start', startCoordinate);
+    args = args.set('end', endCoordinate);
 
-    return PriceEstimatesSearch(args);
+    return new PriceEstimatesSearch(args);
   }
 
   static validateSeatCount(json) {

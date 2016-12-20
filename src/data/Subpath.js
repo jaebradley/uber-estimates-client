@@ -8,6 +8,6 @@ Subpath.initEnum({
     value: 'products',
   },
   PRICE_ESTIMATES: {
-    value: 'price_estimates'
+    value: 'estimates/price'
   }
 });

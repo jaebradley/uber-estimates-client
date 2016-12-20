@@ -15,6 +15,10 @@ export default class UberClient {
                         CoordinateBuilder.build(coordinate).toJS());
   }
 
+  getPriceEstimates(search) {
+    
+  }
+
   execute(subpath, parameters) {
     return rp(this.buildOptions(subpath, parameters))
               .then(result => result)

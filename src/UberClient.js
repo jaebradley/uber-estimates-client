@@ -3,6 +3,7 @@
 import rp from 'request-promise';
 
 import CoordinateBuilder from './data/builders/CoordinateBuilder';
+import PriceEstimatesSearchBuilder from './search/builders/PriceEstimatesSearchBuilder';
 import Subpath from './data/Subpath';
 
 export default class UberClient {
@@ -12,7 +13,15 @@ export default class UberClient {
 
   getProducts(coordinate) {
     return this.execute(Subpath.PRODUCTS,
-                        CoordinateBuilder.build(coordinate).toJS());
+                        CoordinateBuilder.build(coordinate)
+                                         .toJS());
+  }
+
+  getPriceEstimates(search) {
+    return this.execute(Subpath.PRICE_ESTIMATES,
+                        PriceEstimatesSearchBuilder.build(search)
+                                                   .toParameters()
+                                                   .toJS());
   }
 
   execute(subpath, parameters) {

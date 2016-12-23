@@ -47,7 +47,8 @@ export default class UberClient {
       headers: {
         Authorization: `Token ${this.serverToken}`
       },
-      json: true
+      json: true,
+      timeout: 5000,
     };
   }
 }

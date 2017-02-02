@@ -15,10 +15,11 @@
   "preferGlobal": false,
   "main": "./build/index.js",
   "dependencies": {
-    "request-promise": "4.1.1",
+    "dotenv": "2.0.0",
     "enumify": "1.0.4",
     "immutable": "3.8.1",
-    "dotenv": "2.0.0"
+    "request": "^2.79.0",
+    "request-promise": "4.1.1"
   },
   "devDependencies": {
     "chai": "3.5.0",

@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/jaebradley/uber-client.svg?branch=master)](https://travis-ci.org/jaebradley/uber-client)
+[![Coverage Status](https://coveralls.io/repos/github/jaebradley/uber-client/badge.svg?branch=master)](https://coveralls.io/github/jaebradley/uber-client?branch=master)
+[![npm version](https://badge.fury.io/js/uber-client.svg)](https://badge.fury.io/js/uber-client)
+
 # A Node Uber Client
 
 ## Introduction

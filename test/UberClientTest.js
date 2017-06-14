@@ -28,6 +28,16 @@ describe('Test Uber Client', function() {
       longitude: longitude1
     }
   };
+  const priceEstimatesErrorSearch = {
+    start: {
+      latitude: latitude,
+      longitude: longitude
+    },
+    end: {
+      latitude: latitude1,
+      longitude: -longitude1
+    }
+  };
   let timeEstimatesSearch = {
     start: {
       latitude: latitude,
@@ -48,5 +58,10 @@ describe('Test Uber Client', function() {
   it('tests time estimates fetch', function() {
     return client.getTimeEstimates(timeEstimatesSearch)
                  .then(response => console.log(response));
-  })
+  });
+
+  it('tests price estimates error', function() {
+    return client.getPriceEstimates(priceEstimatesErrorSearch)
+                 .catch((e) => console.log(e.error));
+  });
 });

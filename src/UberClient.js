@@ -6,6 +6,7 @@ import CoordinateBuilder from './data/builders/CoordinateBuilder';
 import PriceEstimatesSearchBuilder from './search/builders/PriceEstimatesSearchBuilder';
 import Subpath from './data/Subpath';
 import TimeEstimatesSearchBuilder from './search/builders/TimeEstimatesSearchBuilder';
+import UberError from './errors/UberError';
 
 export default class UberClient {
   constructor(serverToken) {
@@ -36,7 +37,7 @@ export default class UberClient {
     return rp(this.buildOptions(subpath, parameters))
               .then(result => result)
               .catch(function(err) {
-                throw new Error(err);
+                throw new UberError(`Error when querying subpath: ${subpath} with parameters: ${JSON.stringify(parameters)}`, err.error);
               });
   }
 

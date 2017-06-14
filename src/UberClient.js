@@ -37,7 +37,7 @@ export default class UberClient {
     return rp(this.buildOptions(subpath, parameters))
               .then(result => result)
               .catch(function(err) {
-                throw new UberError(`Error when querying subpath: ${subpath} with parameters: ${JSON.stringify(parameters)}`, err.error);
+                throw new UberError(`Error when querying subpath: ${subpath} with parameters: ${JSON.stringify(parameters)}`, err.statusCode, err.error);
               });
   }
 

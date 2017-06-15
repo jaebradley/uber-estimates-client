@@ -1,7 +1,7 @@
 {
   "name": "uber-client",
   "description": "Client for the Uber API",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Jae Bradley",
   "dependencies": {
     "enumify": "1.0.4",

@@ -2,49 +2,41 @@
 [![Coverage Status](https://coveralls.io/repos/github/jaebradley/uber-client/badge.svg?branch=master)](https://coveralls.io/github/jaebradley/uber-client?branch=master)
 [![npm version](https://badge.fury.io/js/uber-client.svg)](https://badge.fury.io/js/uber-client)
 
-# A Node Uber Client
+# A Node Uber Estimates Client
 
 ## Introduction
-A simple node client that serves as an abstraction for the Uber API.
+
+A simple node client that serves as an abstraction for the Uber Estimates API.
 
 ## Installation
+
 Install via NPM
-```
-npm install uber-client
+
+```bash
+npm install uber-estimates-client
 ```
 
 ## Usage
 
-### Get Products
-Takes a coordinate, and returns a response wrapped in a Promise.
-
-#### Example
-```javascript
-import {UberClient} from 'uber-client';
-
-let client = new UberClient('my-server-token');
-return client.getProducts({
-  latitude: 1,
-  longitude: 2
-});
-```
-
 ### Get Price Estimates
+
 Takes a price estimates search query, and returns a response wrapped in a Promise.
 
-#### Price Estimates Search Query
+#### Price Estimates Parameters
+
 * `start` (a coordinate)
 * `end` (a coordinate)
-* `seatCount` (optional)
+* `seats` (optional)
   * default value is 2
   * maximum value is 2
 
-#### Example
-```javascript
-import {UberClient} from 'uber-client';
+#### Price Estimates Example
 
-let client = new UberClient('my-server-token');
-let query = {
+```javascript
+import UberEstimatesClient from 'uber-estimates-client';
+
+const client = new UberEstimatesClient('my-server-token');
+let parameters = {
   start: {
     latitude: 1,
     longitude: 2,
@@ -53,24 +45,27 @@ let query = {
     latitude: 3,
     longitude: 4,
   },
-  seatCount: 1,
+  seats: 1,
 };
-return client.getPriceEstimates(query);
+return client.getPriceEstimates(parameters);
 ```
 
-### Get Time Estimates
-Takes a time estimates search query and returns a response wrapped in a Promise.
+### Get Expected Time of Arrival
 
-#### Time Estimates Search Query
+Gets the ETA for a given location and optional product
+
+#### ETA parameters
+
   * `start` (a coordinate)
   * `productId` (optional)
     * must be a `string`
 
-#### Example
-```javascript
-import {UberClient} from 'uber-client';
+#### ETA Example
 
-let client = new UberClient('my-server-token');
+```javascript
+import UberEstimatesClient from 'uber-estimates-client';
+
+const client = new UberEstimatesClient('my-server-token');
 let query = {
   start: {
     latitude: 1,
@@ -78,5 +73,5 @@ let query = {
   },
   productId: 'jaebaebae',
 };
-return client.getTimeEstimates(query);
+return client.getExpectedTimeOfArrival(query);
 ```

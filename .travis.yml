@@ -1,9 +1,24 @@
 language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: true
 node_js:
-- 4.2.2
-sudo: false
-script:
-- npm run coveralls
-env:
-  global:
-    secure: mwCgEKxBe5ZRrGw9ewSPU+SctUMNlsYWRcCQkSFAL1CYX9XSgshNXKB+n9RNg+fTNoIGvUuIIKdqJxjgAXY79fULXVH4v/TYSIi6jaQAjV+qUOcWpeBhk8YY1wIi3tACUlOmkREXJsMl3tTMrVLVQnWWUTMVvIieDujJKCB6QM93QGLLZ7Klsgcmm3oZzjP8R+KhOaSFjM6Q+pS3FlZLNtNJN3QSy8hPkc3AjaZNQ3LEFdsk47xmO/ySWJsiIGxidd5ER/YiO3tjPUuULSTmH+WnyoxkzbzeP3V0ZT1uHlFO/DyxXraH+6D5T8SLfnrF9TTdp/geyqhm9KtCjfWu2X2XhzZq/yuxZ6FHAm9xSZYF+nS0NXPw+xtOtJkTYNndyFqRBeHgYPbPdBHdH8ZgGzT8N5oRTxF3rFbjeZAy9x5oZ3pNZG6gLhJuIj4GlHgt4mV5rniK3pMBdWZ3IUqNLRK9ackaj+h2lJh7ZcOjDICupD46lufT8mDZdBSGiYb/72wYfCiCJj16kq47xC9fzg1nGuybvaFEL2mIJ0+UkATW4s17MyhBipNX47IFAitMYzI/lh/EWRqZDRf73May+sdelybsJ4hLMnL6rYVbHaVO9wiH3hBAV3v47kSdnOE+kIhGGchM9AZcrIY1Wn+ciItGWs9pqGuR25/nSMK9+Dc=
+  - '8'
+before_install:
+  - npm install -g npm@5
+  - npm install -g greenkeeper-lockfile@1
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm run build
+        - npm run lint
+        - npm run test
+        - npm run is-es5
+      before_script: greenkeeper-lockfile-update
+      after_script: greenkeeper-lockfile-upload
+    - stage: deploy
+      if: branch = master
+      script: npm run travis-deploy-once "npm run semantic-release"

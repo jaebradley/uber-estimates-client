@@ -60,7 +60,7 @@
   "global": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaebradley/uber-estiamtes-client/tree/master"
+    "url": "https://github.com/jaebradley/uber-estimates-client/tree/master"
   },
   "scripts": {
     "build": "BABEL_ENV=production rollup -c",

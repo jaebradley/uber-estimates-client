@@ -36,7 +36,6 @@ describe('UberEstimatesClient unit test', () => {
     it('constructs client', () => {
       expect(client).toBeDefined();
       expect(client.client).toBeDefined();
-      expect(client.serverToken).toEqual(serverToken);
       expect(axios.create).toHaveBeenCalledTimes(1);
       expect(axios.create).toHaveBeenCalledWith({
         baseURL: 'https://api.uber.com/v1.2/estimates',
@@ -68,9 +67,9 @@ describe('UberEstimatesClient unit test', () => {
     });
   });
 
-  describe('#getExpectedTimeOfArrival', () => {
-    it('gets ETAs', async () => {
-      const etas = await client.getExpectedTimeOfArrival({ start });
+  describe('#getArrivalTimes', () => {
+    it('gets arrival times', async () => {
+      const etas = await client.getArrivalTimes({ start });
       expect(etas).toEqual('foobar');
       expect(axios.create).toHaveBeenCalledTimes(1);
       expect(mockedInstance).toHaveBeenCalledTimes(1);

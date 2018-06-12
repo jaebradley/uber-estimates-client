@@ -2,11 +2,10 @@ import axios from 'axios';
 
 class UberEstimatesClient {
   constructor({ serverToken, languageCode = 'en_US' }) {
-    this.serverToken = serverToken;
     this.client = axios.create({
       baseURL: 'https://api.uber.com/v1.2/estimates',
       headers: {
-        Authorization: `Token ${this.serverToken}`,
+        Authorization: `Token ${serverToken}`,
         'Accept-Language': languageCode,
       },
     });
@@ -34,7 +33,7 @@ class UberEstimatesClient {
     }).then(response => response.data);
   }
 
-  getExpectedTimeOfArrival({ start, productId = null }) {
+  getArrivalTimes({ start, productId = null }) {
     const {
       latitude: startLatitude,
       longitude: startLongitude,

@@ -32,9 +32,9 @@ describe('UberEstimatesClient', () => {
     });
   });
 
-  describe('#getExpectedTimeOfArrival', () => {
-    it('gets ETAs', async () => {
-      const prices = await client.getExpectedTimeOfArrival({ start, end });
+  describe('#getArrivalTimes', () => {
+    it('gets arrival times', async () => {
+      const prices = await client.getArrivalTimes({ start, end });
       expect(prices).toBeDefined();
     });
   });

@@ -2,11 +2,11 @@
 [![codecov](https://codecov.io/gh/jaebradley/uber-estimates-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/uber-estimates-client)
 [![npm version](https://badge.fury.io/js/uber-estimates-client.svg)](https://badge.fury.io/js/uber-estimates-client)
 
-# A Node Uber Estimates Client
+# A `Node` Uber Estimates Client
 
 ## Introduction
 
-A simple node client that serves as an abstraction for the Uber Estimates API.
+A simple `Node` client that serves as an abstraction for the Uber Estimates API.
 
 ## Installation
 
@@ -20,7 +20,7 @@ npm install uber-estimates-client
 
 ### Get Price Estimates
 
-Takes a price estimates search query, and returns a response wrapped in a Promise.
+Gets the estimated price range for `start` and `end` coordinates.
 
 #### Price Estimates Parameters
 
@@ -35,7 +35,7 @@ Takes a price estimates search query, and returns a response wrapped in a Promis
 ```javascript
 import UberEstimatesClient from 'uber-estimates-client';
 
-const client = new UberEstimatesClient('my-server-token');
+const client = new UberEstimatesClient({ serverToken: 'my-server-token' });
 let parameters = {
   start: {
     latitude: 1,
@@ -50,22 +50,22 @@ let parameters = {
 return client.getPriceEstimates(parameters);
 ```
 
-### Get Expected Time of Arrival
+### Get Arrival Times
 
 Gets the ETA for a given location and optional product
 
 #### ETA parameters
 
-  * `start` (a coordinate)
-  * `productId` (optional)
-    * must be a `string`
+* `start` (a coordinate)
+* `productId` (optional)
+  * must be a `string`
 
 #### ETA Example
 
 ```javascript
 import UberEstimatesClient from 'uber-estimates-client';
 
-const client = new UberEstimatesClient('my-server-token');
+const client = new UberEstimatesClient({ serverToken: 'my-server-token' });
 let query = {
   start: {
     latitude: 1,
@@ -73,5 +73,5 @@ let query = {
   },
   productId: 'jaebaebae',
 };
-return client.getExpectedTimeOfArrival(query);
+return client.getArrivalTimes(query);
 ```

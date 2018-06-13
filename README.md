@@ -1,6 +1,8 @@
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/uber-estimates-client.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/jaebradley/uber-estimates-client.svg?branch=master)](https://travis-ci.org/jaebradley/uber-estimates-client)
 [![codecov](https://codecov.io/gh/jaebradley/uber-estimates-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/uber-estimates-client)
-[![npm version](https://badge.fury.io/js/uber-estimates-client.svg)](https://badge.fury.io/js/uber-estimates-client) [![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/uber-estimates-client.svg)](https://greenkeeper.io/)
+[![npm version](https://badge.fury.io/js/uber-estimates-client.svg)](https://badge.fury.io/js/uber-estimates-client)
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/uber-estimates-client.svg)](https://greenkeeper.io/)
 
 # A `Node` Uber Estimates Client
 

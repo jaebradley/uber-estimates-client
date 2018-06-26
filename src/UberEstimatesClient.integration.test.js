@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-import UberEstimatesClient from '../src/index';
+import UberEstimatesClient from './index';
 
 dotenv.config();
 

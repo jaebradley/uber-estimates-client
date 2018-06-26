@@ -1,5 +1,5 @@
 import axios from 'axios';
-import UberEstimatesClient from './';
+import UberEstimatesClient from '.';
 
 const response = { data: 'foobar' };
 const mockedInstance = jest.fn(() => Promise.resolve(response));

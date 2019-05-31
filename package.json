@@ -31,7 +31,7 @@
     "@babel/runtime": "^7.0.0-beta.47",
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-angular": "^7.0.1",
-    "@commitlint/prompt": "^7.0.0",
+    "@commitlint/prompt": "^8.0.0",
     "@commitlint/prompt-cli": "^7.0.0",
     "axios-debug": "0.0.4",
     "babel-core": "^7.0.0-0",

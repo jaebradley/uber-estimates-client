@@ -30,7 +30,7 @@ class UberEstimatesClient {
         end_longitude: endLongitude,
         seat_count: seats,
       },
-    }).then(response => response.data);
+    }).then((response) => response.data);
   }
 
   getArrivalTimes({ start, productId = null }) {
@@ -47,7 +47,7 @@ class UberEstimatesClient {
         start_longitude: startLongitude,
         productId,
       },
-    }).then(response => response.data);
+    }).then((response) => response.data);
   }
 }
 

@@ -4,7 +4,7 @@ import UberEstimatesClient from './index';
 
 dotenv.config();
 
-describe('UberEstimatesClient', () => {
+xdescribe('UberEstimatesClient', () => {
   let client;
   const startLatitude = 40.7127837;
   const endLongitude = -74.00594130000002;
